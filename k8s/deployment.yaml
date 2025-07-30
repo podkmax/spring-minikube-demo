@@ -15,5 +15,6 @@ spec:
       containers:
         - name: spring-demo
           image: podkmax/spring-minikube-demo
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
