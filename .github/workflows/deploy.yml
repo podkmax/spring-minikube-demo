@@ -39,7 +39,7 @@ jobs:
           host: ${{ secrets.VDS_HOST }}
           username: ${{ secrets.VDS_USER }}
           key: ${{ secrets.VDS_SSH_KEY }}
-          source: "./*.yaml"
+          source: "k8s/*.yaml"
           target: "/home/${{ secrets.VDS_USER }}/k8s/"
 
       - name: Deploy to Minikube via SSH
