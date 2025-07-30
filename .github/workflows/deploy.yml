@@ -33,12 +33,22 @@ jobs:
       - name: Push Docker image
         run: docker push $IMAGE_NAME
 
-      - name: Deploy to VDS via SSH
+      - name: Copy Kubernetes manifests to VDS
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.VDS_HOST }}
+          username: ${{ secrets.VDS_USER }}
+          key: ${{ secrets.VDS_SSH_KEY }}
+          source: "k8s/*"
+          target: "/home/${{ secrets.VDS_USER }}/k8s/"
+
+      - name: Deploy to Minikube via SSH
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.VDS_HOST }}
           username: ${{ secrets.VDS_USER }}
           key: ${{ secrets.VDS_SSH_KEY }}
+          envs: IMAGE_NAME
           script: |
             docker pull $IMAGE_NAME
             kubectl apply -f /home/${{ secrets.VDS_USER }}/k8s/deployment.yaml
