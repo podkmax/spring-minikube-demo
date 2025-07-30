@@ -9,9 +9,4 @@ public class HelloController {
     public String hello() {
         return "Hello, World!";
     }
-
-    @GetMapping("/zalupa")
-    public String zalupa() {
-        return "Zalupa Ivanycha!";
-    }
 }
