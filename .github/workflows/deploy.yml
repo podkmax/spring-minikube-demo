@@ -40,7 +40,7 @@ jobs:
           username: ${{ secrets.VDS_USER }}
           key: ${{ secrets.VDS_SSH_KEY }}
           source: "k8s/*.yaml"
-          target: "/home/${{ secrets.VDS_USER }}/k8s/"
+          target: "/home/${{ secrets.VDS_USER }}/"
 
       - name: Deploy to Minikube via SSH
         uses: appleboy/ssh-action@v1.0.0
