@@ -7,6 +7,6 @@ spec:
   selector:
     app: spring-demo
   ports:
-    - port: 8080        # порт внутри кластера
-      targetPort: 8080  # порт контейнера
+    - port: 8888        # порт внутри кластера
+      targetPort: 8888  # порт контейнера
       nodePort: 30080   # наружу на VDS
