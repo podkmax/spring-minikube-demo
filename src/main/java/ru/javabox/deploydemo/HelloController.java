@@ -12,6 +12,6 @@ public class HelloController {
 
     @GetMapping("/zalupa")
     public String zalupa() {
-        return "Zalupa Ivanycha!";
+        return "Четыреждыблдяская хуерага помноженная на хуй";
     }
 }
